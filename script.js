@@ -8,6 +8,11 @@ document.getElementById('converter-form').addEventListener('submit', function(ev
     event.preventDefault();
 
     const amount = parseFloat(document.getElementById('amount').value);
+    if (isNaN(amount) || amount <= 0) {
+        document.getElementById('result').innerText = "Please enter a valid amount.";
+        return;
+    }
+
     const fromCurrency = document.getElementById('from-currency').value;
     const toCurrency = document.getElementById('to-currency').value;
 
